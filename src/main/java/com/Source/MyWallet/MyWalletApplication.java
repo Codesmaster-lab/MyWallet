@@ -1,14 +1,14 @@
-package com.Source.CheapStocks;
+package com.Source.MyWallet;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CheapStocksApplication {
+public class MyWalletApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(CheapStocksApplication.class, args);
+		SpringApplication.run(MyWalletApplication.class, args);
 	}
 
 }
