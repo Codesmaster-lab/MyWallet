@@ -6,15 +6,17 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Table(name = "FundTable")
+@Table(name = "FDTABLE")
 public class Fund {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name="seq", initialValue=10000)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
     private int Id;
-    String Name;
-    private double TotalInp;
-    private double Savings1;
-    private double Savings2;
-    LocalDate doe;
+    private String name;
+    private double total_inp;
+    private double savings1;
+    private double savings2;
+    private LocalDate doe;
+
 
 }
