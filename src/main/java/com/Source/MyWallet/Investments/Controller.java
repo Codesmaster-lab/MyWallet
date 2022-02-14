@@ -1,11 +1,8 @@
 package com.Source.MyWallet.Investments;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
-import jdk.nashorn.api.tree.FunctionDeclarationTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -32,4 +29,10 @@ public class Controller {
         return FundService.saveFunds(FD);
     }
 
+    @DeleteMapping("/deletefunds/{id}")
+    public String remove(@PathVariable int id)
+    {
+        FundService.deleteFund(id);
+        return "Succesfully removed "+ id ;
+    }
 }

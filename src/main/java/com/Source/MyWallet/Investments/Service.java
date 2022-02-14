@@ -2,7 +2,6 @@ package com.Source.MyWallet.Investments;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -26,6 +25,12 @@ public class Service {
     {
         return repository.saveAll(funds);
     }
-    
+
+    //to delete a fund from database
+
+    public void deleteFund (int id)
+    {
+         repository.deleteById(id);
+    }
 
 }
