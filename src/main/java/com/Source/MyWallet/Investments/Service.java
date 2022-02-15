@@ -27,10 +27,20 @@ public class Service {
     }
 
     //to delete a fund from database
-
     public void deleteFund (int id)
     {
          repository.deleteById(id);
+    }
+
+    //to update a fund in database
+    public Fund updateFund (Fund updatedfund){
+         Fund fund = repository.findById(updatedfund.getId()).orElse(null);
+         fund.setName(updatedfund.getName());
+         fund.setDoe(updatedfund.getDoe());
+         fund.setTotal_inp(updatedfund.getTotal_inp());
+         fund.setSavings1(updatedfund.getSavings1());
+         fund.setSavings2(updatedfund.getSavings2());
+         return repository.save(fund);
     }
 
 }
