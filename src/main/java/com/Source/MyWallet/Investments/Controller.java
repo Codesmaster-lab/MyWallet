@@ -35,4 +35,9 @@ public class Controller {
         FundService.deleteFund(id);
         return "Succesfully removed "+ id ;
     }
+   @PutMapping("/updatefund")
+    public Fund update(@RequestBody Fund fund)
+   {
+       return  FundService.updateFund(fund);
+   }
 }
