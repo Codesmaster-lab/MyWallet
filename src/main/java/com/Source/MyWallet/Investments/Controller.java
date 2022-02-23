@@ -24,6 +24,15 @@ public class Controller {
         return FundService.getFunds();
     }
 
+    @GetMapping("/gettotalinp")
+    public double gettotalinp(){return FundService.gettotaloftotal_inp();}
+
+    @GetMapping("/gettotalsavings1")
+    public double gettotalsavings1(){return FundService.gettotalofsavings1();}
+
+    @GetMapping("/gettotalsavings2")
+    public double gettotalsavings2(){return FundService.gettotalofsavings2();}
+
     @PostMapping("/postfunds")
     public List<Fund> puts(@RequestBody List<Fund> FD)
     {
