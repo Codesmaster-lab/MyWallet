@@ -3,6 +3,8 @@ package com.Source.MyWallet.Investments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 @Component
@@ -20,6 +22,41 @@ public class Service {
         return repository.findAll() ;
     }
 
+    //to get sum of all total_inp from database
+    public double gettotaloftotal_inp(){
+                 List<Fund> FUND_SET=repository.findAll();
+                 double totalinputsum=0.0;
+                 for (Fund fund: FUND_SET)
+                 {
+                     totalinputsum+=fund.getTotal_inp();
+                 }
+        totalinputsum= BigDecimal.valueOf(totalinputsum).setScale(2, RoundingMode.FLOOR).doubleValue();
+
+        return totalinputsum;
+    }
+    //to get sum of all savings1 from database
+    public double gettotalofsavings1(){
+        List<Fund> FUND_SET=repository.findAll();
+        double savings1=0.0;
+        for (Fund fund: FUND_SET)
+        {
+            savings1+=fund.getSavings1();
+        }
+        savings1= BigDecimal.valueOf(savings1).setScale(2, RoundingMode.FLOOR).doubleValue();
+
+        return savings1;
+    }
+    //to get sum of all savings1 from database
+    public double gettotalofsavings2(){
+        List<Fund> FUND_SET=repository.findAll();
+        double savings2=0.0;
+        for (Fund fund: FUND_SET)
+        {
+            savings2+=fund.getSavings2();
+        }
+        savings2= BigDecimal.valueOf(savings2).setScale(2, RoundingMode.FLOOR).doubleValue();
+        return savings2;
+    }
     //to put a fund into database
     public List<Fund> saveFunds(List<Fund> funds)
     {
@@ -33,7 +70,8 @@ public class Service {
     }
 
     //to update a fund in database
-    public Fund updateFund (Fund updatedfund){
+    public Fund updateFund (Fund updatedfund)
+    {
          Fund fund = repository.findById(updatedfund.getId()).orElse(null);
          fund.setName(updatedfund.getName());
          fund.setDoe(updatedfund.getDoe());
