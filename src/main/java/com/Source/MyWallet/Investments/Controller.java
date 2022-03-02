@@ -25,13 +25,13 @@ public class Controller {
     }
 
     @GetMapping("/gettotalinp")
-    public double gettotalinp(){return FundService.gettotaloftotal_inp();}
+    public String gettotalinp(){return FundService.gettotaloftotal_inp();}
 
     @GetMapping("/gettotalsavings1")
-    public double gettotalsavings1(){return FundService.gettotalofsavings1();}
+    public String gettotalsavings1(){return FundService.gettotalofsavings1();}
 
     @GetMapping("/gettotalsavings2")
-    public double gettotalsavings2(){return FundService.gettotalofsavings2();}
+    public String gettotalsavings2(){return FundService.gettotalofsavings2();}
 
     @PostMapping("/postfunds")
     public List<Fund> puts(@RequestBody List<Fund> FD)
