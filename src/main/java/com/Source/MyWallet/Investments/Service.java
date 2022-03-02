@@ -23,7 +23,7 @@ public class Service {
     }
 
     //to get sum of all total_inp from database
-    public double gettotaloftotal_inp(){
+    public String gettotaloftotal_inp(){
                  List<Fund> FUND_SET=repository.findAll();
                  double totalinputsum=0.0;
                  for (Fund fund: FUND_SET)
@@ -32,10 +32,11 @@ public class Service {
                  }
         totalinputsum= BigDecimal.valueOf(totalinputsum).setScale(2, RoundingMode.FLOOR).doubleValue();
 
-        return totalinputsum;
+         String str=totalinputsum+"";
+        return str;
     }
     //to get sum of all savings1 from database
-    public double gettotalofsavings1(){
+    public String gettotalofsavings1(){
         List<Fund> FUND_SET=repository.findAll();
         double savings1=0.0;
         for (Fund fund: FUND_SET)
@@ -44,10 +45,11 @@ public class Service {
         }
         savings1= BigDecimal.valueOf(savings1).setScale(2, RoundingMode.FLOOR).doubleValue();
 
-        return savings1;
+        String str=savings1+"";
+        return str;
     }
     //to get sum of all savings1 from database
-    public double gettotalofsavings2(){
+    public String gettotalofsavings2(){
         List<Fund> FUND_SET=repository.findAll();
         double savings2=0.0;
         for (Fund fund: FUND_SET)
@@ -55,7 +57,8 @@ public class Service {
             savings2+=fund.getSavings2();
         }
         savings2= BigDecimal.valueOf(savings2).setScale(2, RoundingMode.FLOOR).doubleValue();
-        return savings2;
+        String str=savings2+"";
+        return str;
     }
     //to put a fund into database
     public List<Fund> saveFunds(List<Fund> funds)
