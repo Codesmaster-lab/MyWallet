@@ -11,9 +11,14 @@ function App() {
   return (
    <React.Fragment>
      <Navbar/>
-     <TOTALinp/>
-     <TOTALSAV1/>
-     <TOTALSAV2/>
+      <div className="container">
+     <div className="row">
+     <div className="col"><br/><h1>YOUR STATS :</h1></div>
+     <div className="col"><TOTALinp/></div>
+     <div className="col"><TOTALSAV1/></div>
+     <div className="col"><TOTALSAV2/></div>
+     </div>
+  </div>
      <FundsList/>
    </React.Fragment>
   );

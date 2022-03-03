@@ -3,11 +3,11 @@ import axios from 'axios';
 
 export default class TOTALinp extends React.Component {
 
-  state={
-    totinp :''
+  state = {
+    totinp: ''
   }
-  
-  
+
+
   componentDidMount() {
     axios.get(`http://localhost:8080/api/gettotalinp`)
       .then(res => {
@@ -17,13 +17,22 @@ export default class TOTALinp extends React.Component {
       })
   }
 
- render()
- {
-   const das=this.props;
-  return(
-    <>
-    <h2>{this.state.totinp}</h2>
-    </>
+  render() {
+    const das = this.props;
+    return (
+      <>
+      <br/>
+        <div className="card" style={{width: '15rem'}}>
+        <div className="card-header">
+          <b>TOTAL FUND INPUT</b> 
+        </div>
+        <div className="card-body">
+          <h5 className="card-title">Amounts to :</h5> 
+          <h3 className="card-text"><b>Rs.{this.state.totinp}</b></h3>
+        </div>
+      </div>
+
+      </>
     )
- }
+  }
 }

@@ -16,14 +16,33 @@ export default class FundsList extends React.Component {
 
   render() {
     return (
-      <ul>
+      <>
+      <br/>
+      <div className="table-responsive">
+      <table className="table table-dark table-striped ">
+      <thead>
+      <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">FUND INPUT</th>
+      <th scope="col">SAVINGS 1</th>
+      <th scope="col">SAVINGS 2</th>
+      <th scope="col">DOE</th>
+    </tr>
+      </thead>
+      <tbody>
+      
         {
-          this.state.funds
-            .map(fundelement =>
-              <li key={fundelement.id}>{fundelement.id}   {fundelement.name}   {fundelement.total_inp}   {fundelement.savings1}   {fundelement.savings2}    {fundelement.doe}</li>
-            )
+          this.state.funds.map (fundelement =>
+              <tr key={fundelement.id}>
+                <td>{fundelement.id} </td><td>  {fundelement.name}</td> <td>  {fundelement.total_inp} </td> <td> {fundelement.savings1} </td><td>  {fundelement.savings2}  </td> <td> {fundelement.doe}</td>   
+                  </tr>)
         }
-      </ul>
+      
+      </tbody>
+      </table>
+      </div>
+      </>
     )
   }
 }
