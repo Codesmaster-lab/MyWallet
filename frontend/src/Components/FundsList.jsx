@@ -41,7 +41,32 @@ export default class FundsList extends React.Component {
       
       </tbody>
       </table>
+</div>
+
+      <div className="card" style={{width: '90%'}}>
+        <h5 className="card-header">Featured</h5>
+        <br/>
+        <center>
+        
+        {
+          this.state.funds.map (fundelement =>
+              <>
+                <div className="card" style={{width: '90%'}}>
+        <div className="card-body">
+             {fundelement.name} {fundelement.total_inp} {fundelement.savings1}   {fundelement.savings2}  {fundelement.doe} 
+        
+        </div>
+       </div>
+       <br/>
+       </>
+       )
+        }
+      
+      </center>
+      <br/>
       </div>
+
+
       </>
     )
   }
