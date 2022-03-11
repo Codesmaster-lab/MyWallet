@@ -3,7 +3,9 @@ package com.Source.MyWallet.Investments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins="http://localhost:3000/")
@@ -22,6 +24,13 @@ public class Controller {
     public List<Fund> gets()
     {
         return FundService.getFunds();
+    }
+
+    @GetMapping("/getfundbyid/{ids}")
+    public Fund getfundbyid(@PathVariable int ids)
+    {
+        //System.out.println(FundService.getfundbyid(ids));
+       return FundService.getfundbyid(ids);
     }
 
     @GetMapping("/gettotalinp")

@@ -1,11 +1,13 @@
 package com.Source.MyWallet.Investments;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class Service {
@@ -23,6 +25,7 @@ public class Service {
     }
 
     //to get sum of all total_inp from database
+    @Cacheable(value = "FUNDSCACHE")
     public String gettotaloftotal_inp(){
                  List<Fund> FUND_SET=repository.findAll();
                  double totalinputsum=0.0;
@@ -33,9 +36,11 @@ public class Service {
         totalinputsum= BigDecimal.valueOf(totalinputsum).setScale(2, RoundingMode.FLOOR).doubleValue();
 
          String str=totalinputsum+"";
+        System.out.println(str);
         return str;
     }
     //to get sum of all savings1 from database
+    @Cacheable(value = "FUNDSCACHE")
     public String gettotalofsavings1(){
         List<Fund> FUND_SET=repository.findAll();
         double savings1=0.0;
@@ -49,6 +54,7 @@ public class Service {
         return str;
     }
     //to get sum of all savings1 from database
+    @Cacheable(value = "FUNDSCACHE")
     public String gettotalofsavings2(){
         List<Fund> FUND_SET=repository.findAll();
         double savings2=0.0;
@@ -83,5 +89,12 @@ public class Service {
          fund.setSavings2(updatedfund.getSavings2());
          return repository.save(fund);
     }
-
+   //to get a fund by id in database
+   @Cacheable(value = "FUNDSCACHE",key = "#token" ,unless="#result==null")
+    public Fund getfundbyid(int token)
+    {
+        Fund fund =repository.findById(token).orElse(null);
+        System.out.println(fund); // to check the caching capabilities
+        return fund;
+    }
 }
