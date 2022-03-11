@@ -35,37 +35,13 @@ export default class FundsList extends React.Component {
         {
           this.state.funds.map (fundelement =>
               <tr key={fundelement.id}>
-                <td>{fundelement.id} </td><td>  {fundelement.name}</td> <td>  {fundelement.total_inp} </td> <td> {fundelement.savings1} </td><td>  {fundelement.savings2}  </td> <td> {fundelement.doe}</td>   
+                <td>{fundelement.id} </td><td>  {fundelement.name}</td> <td>  Rs. {fundelement.total_inp} </td> <td> Rs. {fundelement.savings1} </td><td>  Rs. {fundelement.savings2}  </td> <td> {fundelement.doe}</td>   
                   </tr>)
         }
       
       </tbody>
       </table>
 </div>
-
-      <div className="card" style={{width: '90%'}}>
-        <h5 className="card-header">Featured</h5>
-        <br/>
-        <center>
-        
-        {
-          this.state.funds.map (fundelement =>
-              <>
-                <div className="card" style={{width: '90%'}}>
-        <div className="card-body">
-             {fundelement.name} {fundelement.total_inp} {fundelement.savings1}   {fundelement.savings2}  {fundelement.doe} 
-        
-        </div>
-       </div>
-       <br/>
-       </>
-       )
-        }
-      
-      </center>
-      <br/>
-      </div>
-
 
       </>
     )
